@@ -1,0 +1,31 @@
+﻿@model List<MvcFoodProject.Models.Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Category List</h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Category Id</th>
+        <th>Category Name</th>
+        <th>Status</th>
+        <th>Delete</th>
+        <th>Update</th>
+        
+    </tr>
+    @foreach(var category in Model)
+    {
+        <tr>
+            <td>@category.CategoryId</td>
+            <td>@category.CategoryName</td>
+            <td>@category.Status</td>
+            <td><a href="/Category/DeleteCategory/@category.CategoryId" class="btn btn-danger">Delete</a>
+            <td><a href="/Category/UpdateCategory/@category.CategoryId" class="btn btn-success">Update</a>
+
+        </tr>
+    }
+</table>
+    <a href="/Category/CreateCategory" class="btn btn-primary">New Category</a>
+
